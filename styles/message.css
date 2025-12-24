@@ -1,0 +1,95 @@
+.gift-message{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  transform: translate(-50%, -50%) scale(0.1) translateZ(-300px);
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  /* Estilo del mensaje */
+  background: rgba(255,255,255,0.9);
+  padding: 20px 30px;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #02034e;
+  box-shadow: 0 25px 40px rgba(0,0,0,.35);
+  width: 300px;          /* Ajústalo a tu gusto */
+  max-width: 90vw;
+}
+
+/* Cuando empieza a salir */
+.gift-message.show{
+  animation: popOut 2s ease forwards;
+}
+
+.feliz-navidad {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  transition: transform 1s ease, opacity 1s ease;
+   /* Estilo del mensaje */
+  background: rgba(255,255,255,0.9);
+  padding: 20px 30px;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #02034e;
+  box-shadow: 0 25px 40px rgba(0,0,0,.35);
+  width: 200px;          /* Ajústalo a tu gusto */
+  max-width: 90vw;
+}
+
+.feliz-arriba {
+  transform: translate(-50%, -120px);
+}
+
+
+.random-text{
+  opacity:0;
+  transition: opacity 1s ease;
+}
+
+.random-show{
+  opacity:1;
+}
+
+.message {
+  position: relative;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.slide-up {
+  transform: translateY(-60px);
+  opacity: 0;
+}
+
+
+/* Animación salir de la caja */
+@keyframes popOut{
+  0%{
+    opacity: 0;
+    transform: translate(-50%, 10%) scale(0.05) translateZ(-200px);
+  }
+
+  30%{
+    opacity: 1;
+    transform: translate(-50%, -200%) scale(0.6) translateZ(150px);
+  }
+
+  65%{
+    opacity: 1;
+    transform: translate(-50%, -140%) scale(1.2) translateZ(150px);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translate(-50%, -90%) scale(1) translateZ(150px);
+  }
+}

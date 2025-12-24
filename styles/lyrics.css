@@ -1,0 +1,48 @@
+/* Contenedor principal para la parte inferior */
+.lyrics-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* Gradiente oscuro de fondo como en la imagen */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.6) 70%, transparent);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 30px; /* Espacio desde el borde del celular */
+    gap: 15px; /* Espacio exacto entre el botón y la letra */
+    z-index: 999;
+    pointer-events: none; /* Permite clickear el regalo que está atrás si es necesario */
+}
+
+/* El botón rosa (Debe tener pointer-events auto para que funcione el click) */
+.music-gift-btn {
+    pointer-events: auto; 
+    background: #ff5e78;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(255, 94, 120, 0.4);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.music-gift-btn:active {
+    transform: scale(0.95);
+}
+
+/* El texto de la letra */
+.lyrics {
+    color: white;
+    font-size: 1.1rem; /* Un poco más pequeño para que no se corte en celular */
+    font-weight: bold;
+    text-align: center;
+    max-width: 85%; /* Evita que el texto toque los bordes laterales */
+    min-height: 1.5em; /* Mantiene el espacio aunque la letra esté vacía */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    font-family: 'Georgia', serif;
+}

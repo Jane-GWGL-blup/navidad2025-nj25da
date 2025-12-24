@@ -1,0 +1,26 @@
+{
+  "name": "navidad2025-nj",
+  "version": "1.0.0",
+  "description": "",
+  "main": "api/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jane-GWGL-blup/Navidad2025-NJ.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Jane-GWGL-blup/Navidad2025-NJ/issues"
+  },
+  "homepage": "https://github.com/Jane-GWGL-blup/Navidad2025-NJ#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1"
+  }
+}

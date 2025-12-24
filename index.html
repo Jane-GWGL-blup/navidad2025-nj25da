@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarjeta</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="icon" href="assets/gift.png" type="image/x-icon">
+
+</head>
+
+<body>
+  <audio id="introMusic" preload="auto"></audio>
+  <button id="musicToggle" class="music-btn">⏸️ Pausar canción</button>
+  <button id="nextMusic">⏭️ Siguiente canción</button>
+  <button id="prevMusic">⏮️ Canción anterior</button>
+
+  <audio id="bgMusic" src="assets/staceyQ-twoofhearts.mp3" preload="auto"></audio>
+
+  <div id="access-screen">
+    <div class="access-box">
+      <h2>Ingresa la clave 🎁</h2>
+      <input type="password" id="access-input" placeholder="Escribe la clave...">
+      <p id="access-error"></p>
+      <button id="access-btn">Entrar</button>
+    </div>
+  </div>
+
+  <div class="snow"></div>
+
+
+  <div class="container">
+    <span class="click-hint">Haz click en el regalo</span>
+    <div class="gift-box" id="gift">
+
+
+      <!-- Tapa de la caja -->
+      <div class="lid-wrapper">
+        <div class="lid-box" id="lid">
+          <div class="lid-front"></div>
+          <div class="lid-back"></div>
+          <div class="lid-left"></div>
+          <div class="lid-right"></div>
+          <div class="lid-top"></div>
+        </div>
+      </div>
+
+      <!-- Cuerpo de la caja (el cubo) -->
+      <div class="box">
+        <div class="box-front"></div>
+        <div class="box-back"></div>
+        <div class="box-left"></div>
+        <div class="box-right"></div>
+        <div class="box-top"></div>
+        <div class="box-bottom"></div>
+      </div>
+
+      <!-- Lazos del regalo -->
+      <div class="ribbon-front"></div>
+      <div class="ribbon-back"></div>
+      <div class="ribbon-left"></div>
+      <div class="ribbon-right"></div>
+      <div class="ribbon-top-left"></div>
+      <div class="ribbon-top-right"></div>
+
+      <div class="gift-message" id="message"></div>
+
+    </div>
+
+  </div>
+  <div class="lyrics-container">
+    <button id="giftMusicToggle" class="music-gift-btn hidden">⏸️ Pausar canción</button>
+    <div class="lyrics" id="lyrics">♪♫♬♪</div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+
+  <!-- alt + shift + a  -->
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+.music-btn{
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: rgba(0,0,0,.6);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 10000;
+}
+.music-btn:hover{
+  background:black;
+}
+
+#prevMusic{
+  position: fixed;
+  top: 95px;
+  right: 15px;
+  background: rgba(0,0,0,.6);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+#prevMusic:hover{
+  background:black;
+}
+
+
+
+
+#nextMusic{
+  position: fixed;
+  top: 55px;        /* debajo del primero */
+  right: 15px;
+  background: rgba(0,0,0,.6);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+#nextMusic:hover{
+  background: black;
+}

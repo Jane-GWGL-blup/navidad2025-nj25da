@@ -1,0 +1,27 @@
+.music-gift-btn {
+    position: relative; /* Cambiado de fixed a relative */
+    margin-bottom: 15px; /* Espacio respecto al texto de abajo */
+    background: #ff5e78;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    pointer-events: auto; /* IMPORTANTE: Para que se pueda hacer clic */
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.music-gift-btn:hover {
+    background: #ff405f;
+}
+
+/* Para ocultar inicialmente si es necesario */
+.hidden {
+    display: none;
+}

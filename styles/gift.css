@@ -1,0 +1,426 @@
+
+
+
+
+/* Caja 3D */
+.gift-box {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  transform-style: preserve-3d;
+  transform: rotateX(-15deg) rotateY(25deg);
+  transition: transform 120ms linear;
+  /* mejora visual si JS cambia transform */
+  cursor: pointer;
+}
+
+
+/* --------------------------
+TAPA DE LA CAJA
+---------------------------*/
+.lid-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+
+.lid-box {
+  position: absolute;
+  width: 250px;
+  height: 50px;
+  top: 0; 
+  transform-style: preserve-3d;
+  transition: transform 900ms ease;
+}
+
+/* Animación de tapa volando */
+@keyframes tapa-volando {
+  0% {
+    transform: translateY(0) rotateZ(0deg);
+    opacity: 1;
+  }
+  40% {
+    transform: translateY(-40px) rotateZ(-20deg);
+  }
+  100% {
+    transform: translate(200px, -200px) rotateZ(180deg);
+    opacity: 0;
+  }
+}
+
+.lid-box.fly {
+  animation: tapa-volando 0.9s ease-out forwards;
+}
+
+
+.lid-box div {
+  position: absolute;
+  background: #b01f2e;
+  border: 2px solid #74121c;
+  box-sizing: border-box;
+}
+
+/* Frente tapa */
+.lid-front {
+  width: 250px;
+  height: 50px;
+  transform: translateZ(125px);
+}
+
+/* Atrás tapa */
+.lid-back {
+  width: 250px;
+  height: 50px;
+  transform: rotateY(180deg) translateZ(125px);
+}
+
+/* Lado izquierdo tapa */
+.lid-left {
+  width: 250px;
+  height: 50px;
+  transform: rotateY(-90deg) translateZ(125px);
+}
+
+/* Lado derecho tapa */
+.lid-right {
+  width: 250px;
+  height: 50px;
+  transform: rotateY(90deg) translateZ(125px);
+}
+
+/* Parte superior tapa */
+.lid-top {
+  width: 250px;
+  height: 250px;
+  transform: rotateX(90deg) translateZ(125px);
+  top: 0;
+
+}
+
+
+/* --------------------------
+CUERPO DE LA CAJA
+---------------------------*/
+.box {
+  position: absolute;
+  width: 250px;
+  height: 200px;
+  top: 50px;
+  transform-style: preserve-3d;
+}
+
+.box div {
+  position: absolute;
+  width: 250px;
+  height: 200px;
+  background: #b01f2e;
+  border: 2px solid #74121c;
+}
+
+/* Frente */
+.box-front {
+  transform: translateZ(125px);
+}
+
+/* Atrás */
+.box-back {
+  transform: rotateY(180deg) translateZ(125px);
+}
+
+/* Izquierda */
+.box-left {
+  transform: rotateY(-90deg) translateZ(126px);
+}
+
+/* Derecha */
+.box-right {
+  transform: rotateY(90deg) translateZ(125px);
+}
+
+/* Superior */
+.box-top {
+  height: 250px;
+  background-color: #440404 !important;
+  transform: rotateX(90deg) translateZ(100px);
+  top: 0;
+}
+
+/* Inferior */
+.box-bottom {
+  height: 250px;
+  transform: rotateX(-90deg) translateZ(130px);
+  bottom: 25px;
+}
+
+/* --------------------------
+CINTAS
+---------------------------*/
+
+/* Estilo general */
+.ribbon-front,
+.ribbon-back,
+.ribbon-left,
+.ribbon-right,
+.ribbon-top-left,
+.ribbon-top-right {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  transform-style: preserve-3d;
+  position: absolute;
+  background: linear-gradient(#f7d351, #d4a019);
+  box-sizing: border-box;
+}
+
+/* Frente */
+.ribbon-front {
+  width: 30px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateZ(128px);
+}
+
+/* Atrás */
+.ribbon-back {
+  width: 30px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%) rotateY(180deg) translateZ(128px);
+}
+
+/* Izquierda */
+.ribbon-left {
+  width: 30px;
+  height: 100%;
+  right: 43%;
+  transform: rotateY(-90deg) translateZ(129px);
+}
+
+/* Derecha */
+.ribbon-right {
+  width: 30px;
+  height: 100%;
+  right: 43%;
+  transform: rotateY(90deg) translateZ(129px);
+}
+
+/* Cinta parte superior izquierda */
+.ribbon-top-left {
+  height: 30px;
+  width: 100%;
+  top: -15px;
+  left: 0;
+  transform: rotateX(90deg);
+}
+
+/* Cinta parte superior derecha */
+.ribbon-top-right {
+  position: absolute;
+  width: 30px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%) rotateX(90deg) translateZ(125px);
+}
+
+
+.ribbon-front.open-ribbon {
+  transform:
+    translateX(-50%) translateZ(128px)
+    rotateX(80deg)           /* cae hacia adelante */
+    translateY(80px);        /* baja */
+  opacity: 0;
+  transition: transform 1s ease, opacity 0.8s ease;
+}
+
+.ribbon-back.open-ribbon {
+  transform:
+    translateX(-50%) rotateY(180deg) translateZ(128px)
+    rotateX(-80deg)          /* cae hacia atrás */
+    translateY(80px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 0.8s ease;
+}
+
+.ribbon-left.open-ribbon {
+  transform:
+    rotateY(-90deg) translateZ(129px)
+    translateX(-80px)         /* se abre fuerte */
+    rotateZ(-40deg)           /* giro natural de caída */
+    translateY(60px);
+  opacity: 0;
+  transition: transform 1.1s ease, opacity .9s ease;
+}
+
+.ribbon-right.open-ribbon {
+  transform:
+    rotateY(90deg) translateZ(129px)
+    translateX(80px)
+    rotateZ(40deg)
+    translateY(60px);
+  opacity: 0;
+  transition: transform 1.1s ease, opacity .9s ease;
+}
+
+.ribbon-top-left.open-ribbon,
+.ribbon-top-right.open-ribbon {
+  transform:
+    rotateX(90deg)
+    translateY(-40px)
+    rotateZ(50deg);
+  opacity: 0;
+  transition: transform .9s ease-out, opacity .9s ease;
+}
+
+
+
+/* BOW (LAZO SOBRE LA CAJA) */
+.bow3d {
+  position: absolute;
+  top: -55px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 240px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 900px;
+  transform-style: preserve-3d;
+}
+
+/* Tamaño del lazo */
+.loop {
+  width: 120px;
+  height: 70px;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+/* Curvatura lateral */
+.loop.left {
+  transform: rotateY(35deg) rotateX(-10deg) translateX(-30px);
+}
+.loop.right {
+  transform: rotateY(-35deg) rotateX(-10deg) translateX(30px);
+}
+
+/* Todas las caras del volumen */
+.face {
+  position: absolute;
+  width: 120px;
+  height: 70px;
+  background: linear-gradient(to right, #ff4d4d, #cc0000);
+  border-radius: 50% / 60% 60% 40% 40%;
+  box-shadow: inset -10px -12px 18px rgba(0,0,0,0.4),
+              inset 5px 8px 12px rgba(255,255,255,0.5);
+}
+
+/* Frente */
+.front {
+  transform: translateZ(25px);
+}
+
+/* Atras */
+.back {
+  transform: rotateY(180deg) translateZ(25px);
+}
+
+/* Parte superior */
+.top {
+  height: 50px;
+  transform-origin: top;
+  transform: rotateX(90deg) translateZ(25px);
+}
+
+/* Parte inferior */
+.bottom {
+  height: 50px;
+  bottom: 0;
+  transform-origin: bottom;
+  transform: rotateX(-90deg) translateZ(25px);
+}
+
+/* Lado izquierdo */
+.left {
+  width: 50px;
+  left: 0;
+  transform-origin: left;
+  transform: rotateY(-90deg) translateZ(25px);
+}
+
+/* Lado derecho */
+.right {
+  width: 50px;
+  right: 0;
+  transform-origin: right;
+  transform: rotateY(90deg) translateZ(25px);
+}
+
+/* Nudo central */
+.knot {
+  width: 45px;
+  height: 55px;
+  background: radial-gradient(circle at 30% 30%, #ff6666, #b30000);
+  border-radius: 12px;
+  box-shadow:
+    inset -8px -8px 14px rgba(0, 0, 0, 0.4),
+    inset 5px 5px 8px rgba(255, 255, 255, 0.5),
+    0 8px 12px rgba(0, 0, 0, 0.5);
+  transform: translateZ(40px);
+}
+
+
+
+/*-------------------------------------------------------
+*/
+
+
+
+
+/* ------ Shake animation (temblor) ------ */
+@keyframes shake {
+  0% {
+    transform: rotateX(-15deg) rotateY(0deg) translateX(0) translateY(0);
+  }
+
+  10% {
+    transform: rotateX(-16deg) rotateY(3deg) translateX(2px) translateY(-1px);
+  }
+
+  20% {
+    transform: rotateX(-14deg) rotateY(-3deg) translateX(-2px) translateY(1px);
+  }
+
+  30% {
+    transform: rotateX(-16deg) rotateY(2deg) translateX(1px) translateY(-1px);
+  }
+
+  40% {
+    transform: rotateX(-15deg) rotateY(-1deg) translateX(-1px) translateY(0);
+  }
+
+  50% {
+    transform: rotateX(-15deg) rotateY(1deg) translateX(0px) translateY(0);
+  }
+
+  60% {
+    transform: rotateX(-15deg) rotateY(-2deg) translateX(1px) translateY(0);
+  }
+
+  70% {
+    transform: rotateX(-16deg) rotateY(2deg) translateX(-1px) translateY(1px);
+  }
+
+  80% {
+    transform: rotateX(-14deg) rotateY(-1deg) translateX(1px) translateY(-1px);
+  }
+
+  90% {
+    transform: rotateX(-15deg) rotateY(1deg) translateX(-1px) translateY(0);
+  }
+
+  100% {
+    transform: rotateX(-15deg) rotateY(0deg) translateX(0) translateY(0);
+  }
+}
